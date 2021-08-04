@@ -15,6 +15,21 @@
             "sourceLanguages": [
                 "swift"
             ]
+        },
+        {
+            "type": "lldb",
+            "request": "launch",
+            "preLaunchTask": "swift-build",
+            "name": "Run the excellent app (trace marks for user foo)",
+            "program": "${workspaceFolder}/.build/debug/excellent",
+            "args": [
+                "trace-marks",
+                "Ива"
+            ],
+            "cwd": "${workspaceFolder}",
+            "sourceLanguages": [
+                "swift"
+            ]
         }
     ]
 }
