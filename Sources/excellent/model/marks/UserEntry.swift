@@ -2,7 +2,7 @@ import Foundation
 
 let PRIORITY_INDEX = 2
 let RANK_INDEX = 1
-let NAME_INDEX = 3
+private let NAME_INDEX = 3
 
 let SPECIALIZATION_MARK_INDEX = 4
 let FOREIGN_MARK_INDEX = 5

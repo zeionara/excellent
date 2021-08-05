@@ -4,9 +4,8 @@ import Foundation
 
 struct TraceMarks: ParsableCommand {
 
-    // @Option(name: .shortAndLong, help: "User surname")
     @Argument(help: "User surname")
-    private var surname: String = "ok"
+    private var surname: String = ""
 
     func run() throws {
         print("Fetching data for user \(self.surname)...")
