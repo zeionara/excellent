@@ -8,7 +8,7 @@ let SPECIALIZATION_MARK_INDEX = 4
 let FOREIGN_MARK_INDEX = 5
 let INDIVIDUAL_MARK_INDEX = 6
 
-struct User: CustomStringConvertible {
+public struct UserEntry: CustomStringConvertible {
     public var priority: String
     public var rank: String
     public var name: String
