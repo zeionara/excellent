@@ -6,7 +6,8 @@ import PackageDescription
 let package = Package(
     name: "excellent",
     dependencies: [
-        .package(url: "https://github.com/apple/swift-argument-parser.git", .branch("main"))
+        .package(url: "https://github.com/apple/swift-argument-parser.git", .branch("main")),
+        .package(url: "https://github.com/zeionara/ahsheet.git", .branch("master"))
     ],
     targets: [
         // Targets are the basic building blocks of a package. A target can define a module or a test suite.
@@ -14,7 +15,8 @@ let package = Package(
         .executableTarget(
             name: "excellent",
             dependencies: [
-                .product(name: "ArgumentParser", package: "swift-argument-parser")
+                .product(name: "ArgumentParser", package: "swift-argument-parser"),
+                .product(name: "ahsheet", package: "ahsheet")
             ]
         ),
         .testTarget(
