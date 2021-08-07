@@ -83,8 +83,10 @@ struct TraceApplications: ParsableCommand {
         let maxDate = Date().addingTimeInterval(-86400)
         let minDate = start.asApplicationDate!.addingTimeInterval(-86400)
 
+        let wrapper = try GoogleApiSessionWrapper()
+
         var currentAddress = Address(row: 1, column: 0, sheet: Date().asString)
-        try setSheetData(
+        try wrapper.setSheetData(
             SheetData(
                 range: currentAddress.asStringWithSheet,
                 values: try countApplicationsPerDay(minDate: minDate, maxDate: maxDate).map{ (date, count) in
@@ -95,7 +97,7 @@ struct TraceApplications: ParsableCommand {
         print(currentAddress.asStringWithSheet)
 
         currentAddress = Address(row: currentAddress.rowIndex, column: currentAddress.columnIndex + 2, sheet: currentAddress.sheet)
-        try setSheetData(
+        try wrapper.setSheetData(
             SheetData(
                 range: currentAddress.asStringWithSheet,
                 values: try countApplicationsPerDay(minDate: minDate, maxDate: maxDate, status: .accepted).map{ (date, count) in
@@ -105,7 +107,7 @@ struct TraceApplications: ParsableCommand {
         )
         print(currentAddress, currentAddress.sheet!)
         currentAddress = Address(row: currentAddress.rowIndex, column: currentAddress.columnIndex + 2, sheet: currentAddress.sheet)
-                try setSheetData(
+        try wrapper.setSheetData(
             SheetData(
                 range: currentAddress.asStringWithSheet,
                 values: try countApplicationsPerDay(minDate: minDate, maxDate: maxDate, status: .inProgress).map{ (date, count) in
@@ -115,7 +117,7 @@ struct TraceApplications: ParsableCommand {
         )
         print(currentAddress, currentAddress.sheet!)
         currentAddress = Address(row: currentAddress.rowIndex, column: currentAddress.columnIndex + 2, sheet: currentAddress.sheet)        
-        try setSheetData(
+        try wrapper.setSheetData(
             SheetData(
                 range: currentAddress.asStringWithSheet,
                 values: try countApplicationsPerDay(minDate: minDate, maxDate: maxDate, status: .denied).map{ (date, count) in
